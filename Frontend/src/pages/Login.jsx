@@ -22,40 +22,30 @@ function Login() {
 
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/auth/login",
+  `${import.meta.env.VITE_API_URL}/api/auth/login`,
         formData,
         {
           withCredentials: true,
-        }
+        },
       );
 
       alert(res.data.message || "Login Successful");
       navigate("/");
     } catch (error) {
-      alert(
-        error.response?.data?.message || "Invalid Email or Password"
-      );
+      alert(error.response?.data?.message || "Invalid Email or Password");
     }
   };
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
       <div className="w-full max-w-md bg-white shadow-lg rounded-xl p-8">
+        <h1 className="text-3xl font-bold text-center mb-2">Login</h1>
 
-        <h1 className="text-3xl font-bold text-center mb-2">
-          Login
-        </h1>
-
-        <p className="text-center text-gray-500 mb-6">
-          Welcome Back 👋
-        </p>
+        <p className="text-center text-gray-500 mb-6">Welcome Back 👋</p>
 
         <form onSubmit={handleSubmit} className="space-y-5">
-
           <div>
-            <label className="block mb-2 font-medium">
-              Email
-            </label>
+            <label className="block mb-2 font-medium">Email</label>
 
             <input
               type="email"
@@ -69,9 +59,7 @@ function Login() {
           </div>
 
           <div>
-            <label className="block mb-2 font-medium">
-              Password
-            </label>
+            <label className="block mb-2 font-medium">Password</label>
 
             <input
               type="password"
@@ -93,9 +81,7 @@ function Login() {
         </form>
 
         <div className="text-center mt-6">
-          <span className="text-gray-600">
-            Don't have an account?{" "}
-          </span>
+          <span className="text-gray-600">Don't have an account? </span>
 
           <Link
             to="/signup"

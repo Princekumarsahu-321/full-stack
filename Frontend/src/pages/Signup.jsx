@@ -23,11 +23,11 @@ function Signup() {
 
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/auth/register",
+  `${import.meta.env.VITE_API_URL}/api/auth/register`,
         formData,
         {
           withCredentials: true,
-        }
+        },
       );
 
       alert(res.data.message || "Account Created Successfully");
@@ -40,30 +40,20 @@ function Signup() {
 
       navigate("/login");
     } catch (error) {
-      alert(
-        error.response?.data?.message || "Registration Failed"
-      );
+      alert(error.response?.data?.message || "Registration Failed");
     }
   };
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
       <div className="w-full max-w-md bg-white rounded-xl shadow-lg p-8">
+        <h1 className="text-3xl font-bold text-center mb-2">Create Account</h1>
 
-        <h1 className="text-3xl font-bold text-center mb-2">
-          Create Account
-        </h1>
-
-        <p className="text-center text-gray-500 mb-6">
-          Signup to continue
-        </p>
+        <p className="text-center text-gray-500 mb-6">Signup to continue</p>
 
         <form onSubmit={handleSubmit} className="space-y-5">
-
           <div>
-            <label className="block mb-2 font-medium">
-              Username
-            </label>
+            <label className="block mb-2 font-medium">Username</label>
 
             <input
               type="text"
@@ -77,9 +67,7 @@ function Signup() {
           </div>
 
           <div>
-            <label className="block mb-2 font-medium">
-              Email
-            </label>
+            <label className="block mb-2 font-medium">Email</label>
 
             <input
               type="email"
@@ -93,9 +81,7 @@ function Signup() {
           </div>
 
           <div>
-            <label className="block mb-2 font-medium">
-              Password
-            </label>
+            <label className="block mb-2 font-medium">Password</label>
 
             <input
               type="password"
@@ -114,13 +100,10 @@ function Signup() {
           >
             Signup
           </button>
-
         </form>
 
         <div className="text-center mt-6">
-          <span className="text-gray-600">
-            Already have an account?{" "}
-          </span>
+          <span className="text-gray-600">Already have an account? </span>
 
           <Link
             to="/login"
@@ -129,7 +112,6 @@ function Signup() {
             Login
           </Link>
         </div>
-
       </div>
     </div>
   );

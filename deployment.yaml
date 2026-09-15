@@ -1,20 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-project
+  name: Data
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: my-project
+      app: Data
   template:
     metadata:
       labels:
-        app: my-project
-    spec:
-      containers:
-        - name: my-project
+        app: Data
+  spec:
+    containers:
+        - name: Data
           image: prxo/my-project:02
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 3000
+          

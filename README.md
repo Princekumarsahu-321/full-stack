@@ -42,6 +42,7 @@ This project focuses on implementing secure **User Signup and Login functionalit
 ## 📂 Project Structure
 
 ```text
+
 full-stack/
 │
 ├── Backend/

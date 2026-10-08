@@ -17,7 +17,6 @@ WORKDIR /app
 
 RUN npm install
 
-# Copy React production build
 COPY --from=frontend-builder /app/dist app/public
 
 CMD ["node", "server.js"]

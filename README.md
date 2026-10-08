@@ -72,6 +72,7 @@ full-stack/
 ## 🔄 Authentication Flow
 
 ```text
+
 User
  │
  ▼
